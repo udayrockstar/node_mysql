@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+
+<script>
+	var app = angular.module("myApp",[]);
+	
+	app.controller("nodeController",function($scope,$http){
+		
+		$http.get('/test').
+		  success(function(data, status, headers, config) {
+			  console.log(data);
+			  //barChart(data);
+		  }).
+		  error(function(data, status, headers, config) {
+			  console.log("fail");
+		  });
+	});
+</script>
+</head>
+<body ng-controller="nodeController">
+	<h1>Test page here</h1>
+</body>
+</html>
